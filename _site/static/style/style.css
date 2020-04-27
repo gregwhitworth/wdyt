@@ -50,4 +50,5 @@ body {
     font-style: italic;
     font-size: 2em;
     color: #ccc;
+    font-display: swap;
 }
