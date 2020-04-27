@@ -1,0 +1,53 @@
+body {
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    flex: 1;
+    height: 50vmin;
+    max-width: 90%;
+}
+
+#logo rect {
+    animation: adjustOpacity 5s infinite;
+    animation-direction: alternate;
+    opacity: var(--bar-opacity);
+}
+
+#logo rect:nth-child(odd) {
+    --bar-opacity: .45;
+}
+
+#logo rect:nth-child(even) {
+    --bar-opacity: .35;
+}
+
+#logo rect:nth-child(2n) {
+    --bar-opacity: .25;
+}
+
+@keyframes adjustOpacity {
+    to {
+        opacity: calc(2 * var(--bar-opacity))
+    }
+}
+
+.subheading {
+    font-family: roboto-condensed, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-style: italic;
+    font-size: 2em;
+    color: #ccc;
+}

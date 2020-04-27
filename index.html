@@ -7,8 +7,16 @@
   <meta charset="utf-8">
   <title>{{ title }}</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/rsm0tdh.css">
+  <link rel="stylesheet" type="text/css" href="/static/style/style.css" />
  </head>
- <body>
-    <h1>{{ title }}</h1>
+ <body tabindex="0">
+    <div class="logo">
+        {% include images/logo %}
+    </div>
+
+    <p class="subheading">Coming soon...</p>
+
+    {% include script/logo-animation %}
  </body>
 </html>
