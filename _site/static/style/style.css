@@ -7,8 +7,10 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-columns: [logo] 50% [content] 50%;
-    grid-template-rows: min-content [logo] min-content;
+    grid-template-areas: "topLeft     right"
+                         "logo        right";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: min-content min-content;
     color: white;
 }
 
@@ -17,11 +19,12 @@ body {
 .wrapper > header {
     display: flex;
     flex-direction: column;
-    grid-column: logo;
-    grid-row: logo;
+    grid-area: logo;
     width: 80%;
     justify-self: center;
+    align-self: end;
     margin: 20px;
+    position: relative;
 }
 
 nav ol {
@@ -41,19 +44,51 @@ nav a {
     color: var(--seconday-color);
 }
 
-.post {
-    grid-column: content;
-    grid-row: span 2;
-    position: relative;
-    display: flex;
+/* Post */
+
+.post-image {
+    grid-area: right;
     height: 100vh;
 }
 
 .post-info {
-    position: absolute;
+    grid-area: right;
     width: 60%;
-    left: -25%;
-    top: 25%;
+    max-width: 400px;
+    /*margin-left: 23em;
+    margin-top: 10em;
+    margin: 10em 0 0 -10em;*/
+    align-self: center;
+    margin-left: -10em;
+    margin-top: -15em;
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    .post-info {
+        grid-area: topLeft;
+        justify-self: center;
+        align-self: center;
+        margin: initial;
+        max-width: initial;
+    }
+}
+
+@media (min-width: 1500px) {
+    .post-info {
+        margin-left: -7em;
+    }
+}
+
+@media (min-width: 1700px) {
+    .post-info {
+        margin-left: 10em;
+    }
+}
+
+@media (min-width: 1800px) {
+    .post-info {
+        margin-left: 20em;
+    }
 }
 
 .post-image {
@@ -68,6 +103,19 @@ nav a {
     border: none;
     object-fit: cover;
     object-position: top right;
+}
+
+@media (min-width: 500px) {
+    .post-image img {
+        object-position: top center;
+    }
+}
+
+@media (min-width: 1700px) {
+    .post-image img {
+        object-fit: contain;
+        object-position: top right;
+    }
 }
 
 #logo rect {
