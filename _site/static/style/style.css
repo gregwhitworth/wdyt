@@ -1,29 +1,79 @@
 body {
-    background: white;
+    background: black;
+    margin: 0;
+    --seconday-color: #ccc;
+    --tertiary-color: #A29F9F;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: [logo] 50% [content] 50%;
+    grid-template-rows: min-content [logo] min-content;
+    color: white;
+}
+
+/* LOGO Styling */
+
+.wrapper > header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+    grid-column: logo;
+    grid-row: logo;
+    width: 80%;
+    justify-self: center;
+    margin: 20px;
 }
 
-.logo {
+nav ol {
     display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     justify-content: center;
 }
 
-#logo {
+nav li {
+    margin: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--seconday-color);
+}
+
+.post {
+    grid-column: content;
+    grid-row: span 2;
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+
+.post-info {
+    position: absolute;
+    width: 60%;
+    left: -25%;
+    top: 25%;
+}
+
+.post-image {
     flex: 1;
-    height: 50vmin;
-    max-width: 90%;
+    width: 100%;
+    display: flex;
+}
+
+.post-image img {
+    flex: 1;
+    max-width: 100%;
+    border: none;
+    object-fit: cover;
+    object-position: top left;
 }
 
 #logo rect {
     animation: adjustOpacity 5s infinite;
     animation-direction: alternate;
     opacity: var(--bar-opacity);
-    fill: black;
 }
 
 #logo rect:nth-child(odd) {
@@ -44,12 +94,24 @@ body {
     }
 }
 
-.subheading {
-    font-family: roboto-condensed, sans-serif;
-    font-weight: 300;
+.roboto {
+    font-family: roboto, sans-serif;
+    font-weight: 400;
     font-style: normal;
-    font-style: italic;
-    font-size: 2em;
-    color: #ccc;
+    color: var(--seconday-color);
     font-display: swap;
+}
+
+.roboto-thin {
+    font-family: roboto, sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: var(--seconday-color);
+    font-display: swap;
+}
+
+.roboto-black {
+    font-family: roboto, sans-serif;
+    font-weight: 900;
+    font-style: normal;
 }

@@ -10,13 +10,31 @@
   <link rel="stylesheet" href="https://use.typekit.net/rsm0tdh.css">
   <link rel="stylesheet" type="text/css" href="/static/style/style.css" />
  </head>
- <body tabindex="0">
-    <div class="logo">
-        {% include images/logo %}
+ <body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                {% include images/wdyt-bands %}
+            </div>
+            <nav class="roboto-thin">
+                <ol>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Submit a topic</a></li>
+                </ol>
+            </nav>
+        </header>
+        <div class="post">
+            <div class="post-info">
+                <h2 class="post-title roboto-black">cocktails &amp; controls</h2>
+                <p class="post-date roboto-thin">Coming in May 2020</p>
+                <p class="post-excerpt roboto">Stephanie Stimac takes on a quick journey of web controls. Why web developers
+                hate the ones that ship with the browser and what we can do about it.</p>
+            </div>
+            <div class="post-image">
+                <img src="/static/images/posts/stephanie-stimac/stephanie-stimac-w1200.jpg" />
+            </div>
+        </div>
     </div>
-
-    <p class="subheading">Coming soon...</p>
-
     {% include script/logo-animation %}
  </body>
 </html>
