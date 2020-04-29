@@ -7,11 +7,21 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-areas: "topLeft     right"
-                         "logo        right";
+    grid-template-areas: "leftTop     content"
+                         "leftBottom  content";
     grid-template-columns: 50% 50%;
     grid-template-rows: min-content min-content;
     color: white;
+}
+
+@media (min-device-width: 300px) and (max-device-width: 600px) {
+    .wrapper {
+        height: 100vh;
+        grid-template-areas: "logo"
+                             "content";
+        grid-template-rows: minmax(min-content, 10%) minmax(min-content, 90%);
+        grid-template-columns: 100%;
+    }
 }
 
 /* LOGO Styling */
@@ -19,12 +29,18 @@ body {
 .wrapper > header {
     display: flex;
     flex-direction: column;
-    grid-area: logo;
+    grid-area: leftBottom;
     width: 80%;
     justify-self: center;
     align-self: end;
     margin: 20px;
     position: relative;
+}
+
+@media (min-device-width: 300px) and (max-device-width: 600px) {
+    .wrapper > header {
+        grid-area: logo;
+    }
 }
 
 nav ol {
@@ -36,36 +52,59 @@ nav ol {
 }
 
 nav li {
-    margin: 10px;
+    margin: 1em 1.5em;
 }
 
 nav a {
     text-decoration: none;
     color: var(--seconday-color);
+    text-align: center;
+}
+
+@media (min-device-width: 300px) and (max-device-width: 600px) {
+    nav {
+        font-size: 3em;
+    }
 }
 
 /* Post */
 
 .post-image {
-    grid-area: right;
+    grid-area: content;
     height: 100vh;
 }
 
+@media (min-device-width: 300px) and (max-device-width: 600px) {
+    .post-image {
+        height: 100%;
+    }
+}
+
 .post-info {
-    grid-area: right;
+    grid-area: content;
     width: 60%;
     max-width: 400px;
-    /*margin-left: 23em;
-    margin-top: 10em;
-    margin: 10em 0 0 -10em;*/
     align-self: center;
     margin-left: -10em;
     margin-top: -15em;
 }
 
-@media (min-width: 500px) and (max-width: 1000px) {
+@media (min-device-width: 300px) and (max-device-width: 600px) {
     .post-info {
-        grid-area: topLeft;
+        width: auto;
+        max-width: initial;
+        grid-area: content;
+        margin: 1.5em;
+        font-size: 3em;
+        align-self: end;
+        justify-self: end;
+    }
+
+}
+
+@media (min-device-width: 600px) and (max-width: 1024px) {
+    .post-info {
+        grid-area: leftTop;
         justify-self: center;
         align-self: center;
         margin: initial;
@@ -73,21 +112,21 @@ nav a {
     }
 }
 
-@media (min-width: 1500px) {
+@media (min-device-width: 600px) and (min-width: 1500px) {
     .post-info {
         margin-left: -7em;
     }
 }
 
-@media (min-width: 1700px) {
+@media (min-device-width: 600px) and (min-width: 1700px) {
     .post-info {
-        margin-left: 10em;
+        margin-left: 5em;
     }
 }
 
-@media (min-width: 1800px) {
+@media (min-device-width: 600px) and (min-width: 1800px) {
     .post-info {
-        margin-left: 20em;
+        margin-left: 10em;
     }
 }
 
@@ -105,18 +144,50 @@ nav a {
     object-position: top right;
 }
 
-@media (min-width: 500px) {
+@media (min-device-width: 300px) and (max-device-width: 600px) {
+    .post-image img {
+        object-position: -30% center;
+    }
+}
+
+@media (min-device-width: 600px) and (min-width: 500px) {
     .post-image img {
         object-position: top center;
     }
 }
 
-@media (min-width: 1700px) {
+@media (min-device-width: 600px) and (min-width: 1700px) {
     .post-image img {
         object-fit: contain;
         object-position: top right;
     }
 }
+
+/* TYPOGRAPHY */
+
+.roboto {
+    font-family: roboto, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--seconday-color);
+    font-display: swap;
+}
+
+.roboto-thin {
+    font-family: roboto, sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: var(--seconday-color);
+    font-display: swap;
+}
+
+.roboto-black {
+    font-family: roboto, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* LOGO ANIMATION */
 
 #logo rect {
     animation: adjustOpacity 5s infinite;
@@ -140,26 +211,4 @@ nav a {
     to {
         opacity: calc(2 * var(--bar-opacity))
     }
-}
-
-.roboto {
-    font-family: roboto, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: var(--seconday-color);
-    font-display: swap;
-}
-
-.roboto-thin {
-    font-family: roboto, sans-serif;
-    font-weight: 100;
-    font-style: normal;
-    color: var(--seconday-color);
-    font-display: swap;
-}
-
-.roboto-black {
-    font-family: roboto, sans-serif;
-    font-weight: 900;
-    font-style: normal;
 }
