@@ -67,7 +67,7 @@ nav a {
     max-width: 100%;
     border: none;
     object-fit: cover;
-    object-position: top left;
+    object-position: top right;
 }
 
 #logo rect {
